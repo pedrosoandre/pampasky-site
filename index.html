@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PampaSky — Ronda aérea da sua rua</title>
+<meta name="description" content="Ronda aérea agendada com drone para seu bairro. Sobrevoo com registro, relatório e alerta ao grupo da vizinhança. R$ 18,90/mês por residência.">
+<meta property="og:title" content="PampaSky — Ronda aérea da sua rua">
+<meta property="og:description" content="Ronda aérea agendada com drone. Registro, relatório e alerta ao grupo da vizinhança.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="nav" id="topo">
+  <div class="wrap nav__row">
+    <a class="brand" href="#topo">
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span class="brand__name">PampaSky</span>
+    </a>
+    <nav class="nav__links" aria-label="Seções">
+      <a href="#como">Como funciona</a>
+      <a href="#preco">Planos</a>
+      <a href="#avulsos">Avulsos</a>
+      <a href="#duvidas">Dúvidas</a>
+    </nav>
+    <a class="btn btn--ghost nav__cta" href="#assinar">Quero na minha rua</a>
+  </div>
+</header>
+
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <p class="eyebrow"><span class="dot"></span> Ronda aérea · seu bairro</p>
+      <h1 class="hero__title">Sua rua, olhada<br>de cima.</h1>
+      <p class="hero__sub">
+        Um drone faz rondas agendadas no bairro, registra o sobrevoo e manda o
+        relatório pro grupo da vizinhança. Mais um par de olhos — combinado com os vizinhos, não no lugar deles.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--amber" href="#assinar">Reservar minha vaga</a>
+        <a class="btn btn--line" href="https://wa.me/5519999999999" target="_blank" rel="noopener">Falar no WhatsApp</a>
+      </div>
+      <ul class="hero__ticks">
+        <li>Rondas em horário combinado</li>
+        <li>Registro de cada voo</li>
+        <li>Alerta direto no grupo</li>
+      </ul>
+    </div>
+
+    <!-- ASSINATURA: vídeo real da ronda (se houver) ou mapa com a rota animada -->
+        <figure class="map" aria-label="Ilustração de um drone percorrendo a rota da ronda sobre o bairro">
+      <div class="map__telemetry">
+        <span>ALT&nbsp;90m</span><span>VLOS</span><span class="live"><i></i>EM RONDA</span>
+      </div>
+      <svg viewBox="0 0 400 320" role="img" aria-hidden="true">
+        <defs>
+          <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#FFB454" stop-opacity=".55"/>
+            <stop offset="100%" stop-color="#FFB454" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="route" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#58C6C0"/>
+            <stop offset="100%" stop-color="#8ADED9"/>
+          </linearGradient>
+        </defs>
+
+        <!-- quarteirões -->
+        <g class="blocks">
+          <rect x="40"  y="40"  width="90" height="70" rx="6"/>
+          <rect x="155" y="40"  width="90" height="70" rx="6"/>
+          <rect x="270" y="40"  width="90" height="110" rx="6"/>
+          <rect x="40"  y="135" width="90" height="145" rx="6"/>
+          <rect x="155" y="135" width="90" height="60" rx="6"/>
+          <rect x="155" y="220" width="90" height="60" rx="6"/>
+          <rect x="270" y="175" width="90" height="105" rx="6"/>
+        </g>
+        <!-- postes de luz -->
+        <g class="lamps">
+          <circle cx="142" cy="122" r="2.5"/><circle cx="257" cy="122" r="2.5"/>
+          <circle cx="142" cy="207" r="2.5"/><circle cx="257" cy="162" r="2.5"/>
+        </g>
+
+        <!-- rota da ronda -->
+        <path id="rota" class="route" d="M 85 90 L 300 90 L 300 225 L 200 225 L 200 175 L 85 175 Z"
+              fill="none" stroke="url(#route)" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- traço que percorre a rota -->
+        <path class="route__runner" d="M 85 90 L 300 90 L 300 225 L 200 225 L 200 175 L 85 175 Z"
+              fill="none" stroke="url(#route)" stroke-width="3" stroke-linecap="round"/>
+
+        <!-- drone -->
+        <g class="drone">
+          <circle r="34" fill="url(#glow)"/>
+          <circle r="4.5" fill="#FFCE8A"/>
+          <circle r="9" fill="none" stroke="#FFB454" stroke-width="1.5" opacity=".7"/>
+        </g>
+      </svg>
+      <figcaption class="map__cap">Rota ilustrativa · o circuito é ajustado à sua rua</figcaption>
+    </figure>
+      </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="section" id="como">
+  <div class="wrap">
+    <p class="kicker">Como funciona</p>
+    <h2 class="section__title">Três passos, sem mistério.</h2>
+    <ol class="steps">
+      <li class="step">
+        <span class="step__n">01</span>
+        <h3>Agenda a ronda</h3>
+        <p>A gente combina os horários dos sobrevoos com o grupo da rua. Você sabe quando o drone sobe.</p>
+      </li>
+      <li class="step">
+        <span class="step__n">02</span>
+        <h3>Sobrevoo com registro</h3>
+        <p>O drone percorre o circuito do bairro. Cada voo é registrado, dentro das regras de altura e distância.</p>
+      </li>
+      <li class="step">
+        <span class="step__n">03</span>
+        <h3>Relatório e alerta</h3>
+        <p>Terminou a ronda, chega o resumo no grupo. Viu algo fora do lugar, o aviso sai na hora pra vizinhança.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ESCOPO: o que é / o que não é -->
+<section class="section section--alt" id="escopo">
+  <div class="wrap escopo">
+    <div>
+      <p class="kicker">O que é</p>
+      <ul class="list list--yes">
+        <li>Rondas aéreas em horários combinados</li>
+        <li>Registro de imagem de cada sobrevoo</li>
+        <li>Relatório e alerta no grupo da vizinhança</li>
+        <li>Canal de mensagem direto com você</li>
+      </ul>
+    </div>
+    <div>
+      <p class="kicker kicker--muted">O que não é</p>
+      <ul class="list list--no">
+        <li>Não é vigilância 24 horas</li>
+        <li>Não substitui a polícia nem serviço de segurança armada</li>
+        <li>Não filma o interior de casas — só a via pública, de cima</li>
+        <li>Não garante impedir ocorrências: é dissuasão e registro</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PLANOS -->
+<section class="section" id="preco">
+  <div class="wrap">
+    <p class="kicker">Planos</p>
+    <h2 class="section__title">Escolha como quer a ronda.</h2>
+    <div class="planos">
+
+      <div class="plano">
+        <h3 class="plano__nome">Rua</h3>
+        <div class="plano__val"><span class="preco__cifra">R$</span>29,90<span class="preco__mes">/mês</span></div>
+        <ul class="plano__lista">
+          <li>Rondas do circuito da rua em horários combinados</li>
+          <li>Relatório de cada sobrevoo no grupo</li>
+          <li>Alertas ao vivo pra vizinhança</li>
+          <li>Acesso ao portal do morador</li>
+        </ul>
+        <a class="btn btn--line btn--block" href="#assinar">Quero o plano Rua</a>
+        <p class="plano__nota">Fundadores da primeira rua seguem em R$ 18,90 — pra sempre.</p>
+      </div>
+
+      <div class="plano plano--destaque">
+        <span class="plano__tag">Mais completo</span>
+        <h3 class="plano__nome">Casa+</h3>
+        <div class="plano__val"><span class="preco__cifra">R$</span>44,90<span class="preco__mes">/mês</span></div>
+        <ul class="plano__lista">
+          <li>Tudo do plano Rua</li>
+          <li><strong>2 sobrevoos individuais</strong> da sua casa por mês, com fotos</li>
+          <li><strong>Modo viagem:</strong> saiu de férias, a gente sobrevoa e te manda o registro</li>
+          <li>Registro aéreo pós-ocorrência pra B.O. e seguradora</li>
+        </ul>
+        <a class="btn btn--amber btn--block" href="#assinar">Quero o Casa+</a>
+        <p class="plano__nota">Sobrevoos individuais mediante agendamento e condições de voo.</p>
+      </div>
+
+    </div>
+
+    <div class="indica">
+      <div>
+        <h3>Leve a ronda pra sua rua</h3>
+        <p>Nosso circuito cresce rua a rua. Junte os vizinhos da sua e feche o grupo: quem organiza a rua <strong>ganha 3 meses grátis</strong>.</p>
+      </div>
+      <a class="btn btn--line" href="https://wa.me/5519999999999?text=Quero%20levar%20a%20ronda%20pra%20minha%20rua%21" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS AVULSOS -->
+<section class="section section--alt" id="avulsos">
+  <div class="wrap">
+    <p class="kicker">Serviços avulsos</p>
+    <h2 class="section__title">O mesmo drone, outros trabalhos.</h2>
+    <div class="avulsos">
+            <div class="avulso">
+        <div class="avulso__top">
+          <h3>Foto e vídeo de imóvel</h3>
+          <span class="avulso__preco">R$ 249</span>
+        </div>
+        <p>Pra vender ou alugar mais rápido. Fotos aéreas + vídeo editado.</p>
+      </div>
+            <div class="avulso">
+        <div class="avulso__top">
+          <h3>Inspeção de telhado e calhas</h3>
+          <span class="avulso__preco">R$ 129</span>
+        </div>
+        <p>Depois do temporal, sem subir escada. Fotos em alta + relatório.</p>
+      </div>
+            <div class="avulso">
+        <div class="avulso__top">
+          <h3>Registro de obra ou reforma</h3>
+          <span class="avulso__preco">R$ 149</span>
+        </div>
+        <p>Acompanhamento aéreo por visita. Ótimo pra medir avanço.</p>
+      </div>
+            <div class="avulso">
+        <div class="avulso__top">
+          <h3>Cobertura de evento na rua</h3>
+          <span class="avulso__preco">R$ 199</span>
+        </div>
+        <p>Festa junina, aniversário, encontro da vizinhança, visto de cima.</p>
+      </div>
+            <div class="avulso">
+        <div class="avulso__top">
+          <h3>Busca visual de pet perdido</h3>
+          <span class="avulso__preco">R$ 99</span>
+        </div>
+        <p>Varredura aérea da região. Busca dedicada, sem garantia de encontrar.</p>
+      </div>
+          </div>
+    <p class="avulsos__nota">Valores a partir de. Assinantes têm prioridade de agenda e desconto.</p>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="section" id="vizinhos">
+  <div class="wrap">
+    <p class="kicker">Quem já tem</p>
+    <h2 class="section__title">A palavra de quem mora aqui.</h2>
+    <div class="depos">
+            <figure class="depo">
+        <blockquote>"[Troque pelo depoimento real de um vizinho fundador]"</blockquote>
+        <figcaption>— Nome do vizinho · casa 12</figcaption>
+      </figure>
+            <figure class="depo">
+        <blockquote>"[Troque pelo depoimento real de outro morador]"</blockquote>
+        <figcaption>— Nome · esquina da rua</figcaption>
+      </figure>
+          </div>
+  </div>
+</section>
+
+<!-- DÚVIDAS -->
+<section class="section section--alt" id="duvidas">
+  <div class="wrap">
+    <p class="kicker">Dúvidas</p>
+    <h2 class="section__title">O que os vizinhos perguntam.</h2>
+    <div class="faq">
+      <details>
+        <summary>Isso é legal? Precisa de autorização?</summary>
+        <p>Sim. O operador é cadastrado na ANAC e cada voo tem autorização de espaço aéreo (DECEA/SARPAS), dentro das regras de altura e distância de pessoas.</p>
+      </details>
+      <details>
+        <summary>E a minha privacidade?</summary>
+        <p>O drone registra a via pública vista de cima, não o interior das residências. As imagens servem à ronda e ao grupo, não são publicadas.</p>
+      </details>
+      <details>
+        <summary>Se acontecer um assalto, vocês impedem?</summary>
+        <p>Não prometemos impedir ocorrências. A ronda funciona como dissuasão e registro, e o alerta agiliza o aviso à vizinhança e o acionamento da polícia por quem for da rua.</p>
+      </details>
+      <details>
+        <summary>Voa de noite?</summary>
+        <p>Nos horários combinados e permitidos. Os sobrevoos seguem o que a regra autoriza para cada período.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ASSINAR -->
+<section class="section" id="assinar">
+  <div class="wrap assinar">
+    <div class="assinar__copy">
+      <p class="kicker">Reservar</p>
+      <h2 class="section__title">Traga a ronda pra sua rua.</h2>
+      <p>Deixa seu contato. Eu te chamo no WhatsApp pra ver o traçado do circuito e combinar a primeira ronda. Sem compromisso.</p>
+      <a class="wpp" href="https://wa.me/5519999999999" target="_blank" rel="noopener">ou fala direto no WhatsApp →</a>
+    </div>
+
+    <div class="form">
+      <p>Me chama no WhatsApp com o nome da sua rua. Respondo pra combinar o traçado do circuito e a primeira ronda.</p>
+      <a class="btn btn--amber btn--block" href="https://wa.me/5519999999999?text=Oi%21%20Quero%20saber%20da%20ronda%20a%C3%A9rea%20na%20minha%20rua." target="_blank" rel="noopener">Chamar no WhatsApp</a>
+      <p class="form__fine">Seus dados são usados só pra esse contato. Nada de lista, nada de spam.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot__row">
+    <div>
+      <span class="brand__name">PampaSky</span>
+      <p class="foot__reg">Operador cadastrado ANAC/SISANT · Voos autorizados DECEA/SARPAS</p>
+    </div>
+    <p class="foot__copy">© 2026 · seu bairro</p>
+  </div>
+</footer>
+
+<a class="zap" href="https://wa.me/5519999999999" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.2 1.2-1.7 1.2-.4.1-1 .1-1.6-.1a13 13 0 0 1-5.8-5.1c-.6-1-.9-2-.9-2.6 0-.6.3-1.2.6-1.5.2-.3.5-.4.7-.4h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .6l-.4.6c-.1.2-.3.4-.1.7.2.4.8 1.3 1.7 2.1 1.1 1 2 1.3 2.4 1.5.3.1.5.1.7-.1l.7-.9c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.4 0 .1 0 .5-.2 1Z"/></svg>
+</a>
+<script src="assets/app.js" defer></script>
+</body>
+</html>
