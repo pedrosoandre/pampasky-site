@@ -171,19 +171,37 @@ body::before{
 .step p{ color:var(--muted); font-size:.98rem; }
 
 /* escopo */
-/* foto de fundo do hero — ancorada embaixo, sob véu escuro para o texto respirar.
+/* foto de fundo do hero — tratada como TEXTURA, não como fotografia.
+   A imagem é dessaturada, escurecida e dissolvida nas bordas por máscara radial:
+   assim uma foto de baixa resolução vira atmosfera em vez de virar borrão.
    Só existe quando 'foto_hero' está setado no config (classe .hero--foto). */
 .hero--foto{ position:relative; overflow:hidden; }
+
+/* camada 1 — a imagem, ancorada à direita e desbotada nas bordas */
 .hero--foto::before{
   content:""; position:absolute; inset:0; z-index:0;
-  background:var(--foto-hero) center bottom/cover no-repeat;
-  opacity:.34;
+  background:var(--foto-hero) 78% 62%/cover no-repeat;
+  opacity:.30;
+  filter:saturate(.3) contrast(1.08) brightness(.85);
+  -webkit-mask-image:radial-gradient(115% 95% at 74% 58%, #000 0%, #000 34%, transparent 76%);
+          mask-image:radial-gradient(115% 95% at 74% 58%, #000 0%, #000 34%, transparent 76%);
 }
+
+/* camada 2 — véu da paleta: aqua de sinal por cima, fundo da marca nas pontas */
 .hero--foto::after{
   content:""; position:absolute; inset:0; z-index:0;
-  background:linear-gradient(180deg, var(--bg) 4%, rgba(10,14,26,.45) 45%, var(--bg) 97%);
+  background:
+    radial-gradient(85% 65% at 72% 55%, rgba(88,198,192,.13), transparent 62%),
+    radial-gradient(60% 50% at 18% 30%, rgba(255,180,84,.07), transparent 70%),
+    linear-gradient(180deg, var(--bg) 1%, rgba(10,14,26,.52) 42%, var(--bg) 95%);
 }
+
 .hero--foto > .wrap{ position:relative; z-index:1; }
+
+/* no mobile a foto compete com o texto: recua e sai da frente */
+@media (max-width:900px){
+  .hero--foto::before{ opacity:.16; background-position:center 70%; }
+}
 
 /* o que o drone faz no ar — borda aqua, o mesmo recurso do .depo em âmbar */
 .voo{ margin-top:56px; padding-top:44px; border-top:1px solid var(--line-2); }
