@@ -180,16 +180,16 @@ body::before{
 /* camada 1 — a imagem, ancorada à direita e desbotada nas bordas */
 .hero--foto::before{
   content:""; position:absolute; inset:0; z-index:0;
-  /* 'contain' encaixa a foto INTEIRA no hero: é o menor zoom possível.
-     Com percentual + altura 'auto' a imagem transbordava na vertical (ela é
-     larga e baixa, 764x401) e só se via uma faixa do meio — o que aparecia
-     como drone estourado. Aqui a cena aparece completa, com o drone pequeno.
-     O 28% no eixo X puxa a imagem para a esquerda dentro da folga que sobra. */
-  background:var(--foto-hero) 28% 50%/contain no-repeat;
+  /* 'cover' preenche tudo: a foto nunca mostra borda própria, então não vira
+     retângulo colado. O desfoque leve é o que resolve o resto — joga a imagem
+     para o fundo como profundidade de campo, disfarça o upscale (o arquivo tem
+     só 764px de largura) e faz o drone ler como distante em vez de estourado. */
+  background:var(--foto-hero) 62% 52%/cover no-repeat;
   opacity:.80;
-  filter:saturate(.72) contrast(1.04) brightness(1.02);
-  -webkit-mask-image:radial-gradient(115% 125% at 53% 54%, #000 0%, #000 58%, transparent 92%);
-          mask-image:radial-gradient(115% 125% at 53% 54%, #000 0%, #000 58%, transparent 92%);
+  filter:saturate(.6) contrast(1.02) brightness(1.02) blur(2.5px);
+  transform:scale(1.04);   /* cobre a franja transparente que o blur cria na borda */
+  -webkit-mask-image:radial-gradient(140% 150% at 58% 52%, #000 0%, #000 46%, transparent 96%);
+          mask-image:radial-gradient(140% 150% at 58% 52%, #000 0%, #000 46%, transparent 96%);
 }
 
 /* camada 2 — véu da paleta. O gradiente horizontal é o que segura o contraste:
@@ -221,11 +221,12 @@ body::before{
    cortavam atrás da lista de tópicos. A máscara sobe junto. */
 @media (max-width:900px){
   .hero--foto::before{
-    opacity:.48;
-    background-size:contain;
+    opacity:.52;
+    background-size:cover;
     background-position:center 34%;
-    -webkit-mask-image:radial-gradient(130% 90% at 50% 36%, #000 0%, #000 52%, transparent 88%);
-            mask-image:radial-gradient(130% 90% at 50% 36%, #000 0%, #000 52%, transparent 88%);
+    filter:saturate(.6) contrast(1.02) brightness(1.02) blur(2px);
+    -webkit-mask-image:radial-gradient(150% 85% at 50% 36%, #000 0%, #000 42%, transparent 94%);
+            mask-image:radial-gradient(150% 85% at 50% 36%, #000 0%, #000 42%, transparent 94%);
   }
   .hero--foto::after{
     background:linear-gradient(180deg, var(--bg) 2%, rgba(10,14,26,.52) 45%, var(--bg) 96%);
@@ -244,24 +245,36 @@ body::before{
    mascarada nas bordas e sob véu da paleta. Os cards são opacos e ficam por
    cima; a foto aparece nas frestas e nas margens, como atmosfera. */
 .operacao{ position:relative; }
-.operacao--foto{ overflow:hidden; }
+
+/* O bloco vive dentro do .wrap, que tem max-width — sem isto o fundo para na
+   borda do texto e vira um card. As duas camadas escapam para a largura da
+   janela; o #como recorta o excesso para não criar rolagem horizontal. */
+.operacao--foto::before,
+.operacao--foto::after{
+  content:""; position:absolute; z-index:0;
+  top:-38px; bottom:-38px;
+  left:calc(50% - 50vw); width:100vw; right:auto;
+}
 
 .operacao--foto::before{
-  content:""; position:absolute; inset:0; z-index:0;
-  /* mesmo motivo do hero: 'contain' mostra a foto inteira, sem estourar */
-  background:var(--foto-oper) 50% 46%/contain no-repeat;
+  background:var(--foto-oper) 50% 48%/cover no-repeat;
   opacity:.80;
-  filter:saturate(.72) contrast(1.04) brightness(1.02);
-  -webkit-mask-image:radial-gradient(105% 115% at 50% 46%, #000 0%, #000 56%, transparent 92%);
-          mask-image:radial-gradient(105% 115% at 50% 46%, #000 0%, #000 56%, transparent 92%);
+  filter:saturate(.6) contrast(1.02) brightness(1.02) blur(2.5px);
+  transform:scale(1.03);
+  -webkit-mask-image:radial-gradient(80% 150% at 50% 50%, #000 0%, #000 40%, transparent 95%);
+          mask-image:radial-gradient(80% 150% at 50% 50%, #000 0%, #000 40%, transparent 95%);
 }
 
 .operacao--foto::after{
-  content:""; position:absolute; inset:0; z-index:0;
   background:
-    radial-gradient(70% 55% at 50% 44%, rgba(88,198,192,.09), transparent 66%),
-    linear-gradient(180deg, var(--bg) 0%, rgba(10,14,26,.16) 40%, rgba(10,14,26,.55) 82%, var(--bg) 100%);
+    radial-gradient(60% 55% at 50% 46%, rgba(88,198,192,.08), transparent 68%),
+    linear-gradient(180deg, var(--bg) 0%, rgba(10,14,26,.18) 34%, rgba(10,14,26,.5) 80%, var(--bg) 100%);
 }
+
+/* Segura o sangramento de 100vw para não virar barra de rolagem lateral.
+   'clip' e não 'hidden': com hidden o overflow-y vira 'auto' por especificação
+   e a seção viraria um container de rolagem sem motivo. */
+#como{ overflow-x:clip; }
 
 .operacao--foto > *{ position:relative; z-index:1; }
 
