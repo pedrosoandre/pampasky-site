@@ -230,6 +230,37 @@ body::before{
 .voo__item h4{ font-family:var(--display); font-size:1.05rem; letter-spacing:-.01em; margin-bottom:8px; }
 .voo__item p{ color:var(--muted); font-size:.95rem; }
 
+/* fundo do bloco de operação — mesmo tratamento da foto do hero: dessaturada,
+   mascarada nas bordas e sob véu da paleta. Os cards são opacos e ficam por
+   cima; a foto aparece nas frestas e nas margens, como atmosfera. */
+.operacao{ position:relative; }
+.operacao--foto{ overflow:hidden; }
+
+.operacao--foto::before{
+  content:""; position:absolute; inset:0; z-index:0;
+  background:var(--foto-oper) 50% 42%/125% auto no-repeat;
+  opacity:.80;
+  filter:saturate(.72) contrast(1.04) brightness(1.02);
+  -webkit-mask-image:radial-gradient(105% 115% at 50% 46%, #000 0%, #000 56%, transparent 92%);
+          mask-image:radial-gradient(105% 115% at 50% 46%, #000 0%, #000 56%, transparent 92%);
+}
+
+.operacao--foto::after{
+  content:""; position:absolute; inset:0; z-index:0;
+  background:
+    radial-gradient(70% 55% at 50% 44%, rgba(88,198,192,.09), transparent 66%),
+    linear-gradient(180deg, var(--bg) 0%, rgba(10,14,26,.16) 40%, rgba(10,14,26,.55) 82%, var(--bg) 100%);
+}
+
+.operacao--foto > *{ position:relative; z-index:1; }
+
+/* a lista de extras não tem card opaco por baixo — a sombra garante o contraste */
+.operacao--foto .extras .list li,
+.operacao--foto .voo__titulo,
+.operacao--foto .extras__titulo{
+  text-shadow:0 2px 20px rgba(10,14,26,.92), 0 1px 4px rgba(10,14,26,.8);
+}
+
 .extras{ margin-top:44px; }
 .extras__titulo{ font-family:var(--display); font-size:1.5rem; letter-spacing:-.02em; margin-bottom:20px; }
 .extras .list li strong{ color:var(--text); font-weight:600; }
