@@ -180,11 +180,13 @@ body::before{
 /* camada 1 — a imagem, ancorada à direita e desbotada nas bordas */
 .hero--foto::before{
   content:""; position:absolute; inset:0; z-index:0;
-  /* 150% da largura do hero: amplia o drone E cria sobra horizontal, sem a qual
-     background-position-x nao tem efeito nenhum (com 'cover' a imagem ja
-     encostava nas duas bordas). Com a sobra, o 88% desliza a cena para a
-     esquerda e traz o drone grande para perto do centro. */
-  background:var(--foto-hero) 88% 56%/150% auto no-repeat;
+  /* 115% da largura do hero: o suficiente para o drone respirar sem estourar,
+     e ainda deixa sobra horizontal — sem sobra, background-position-x nao tem
+     efeito nenhum (com 'cover' a imagem encosta nas duas bordas).
+     Como a sobra encolheu de 50% para 15%, o deslocamento precisa ser bem
+     maior para manter o drone no mesmo ponto: dai o 130% (valor acima de 100%
+     e valido em background-position). */
+  background:var(--foto-hero) 130% 56%/115% auto no-repeat;
   opacity:.80;
   filter:saturate(.72) contrast(1.04) brightness(1.02);
   -webkit-mask-image:radial-gradient(115% 125% at 53% 54%, #000 0%, #000 58%, transparent 92%);
@@ -213,10 +215,19 @@ body::before{
 
 .hero--foto > .wrap{ position:relative; z-index:1; }
 
-/* no mobile o texto ocupa a largura toda e o gradiente horizontal não protege
-   mais nada — por isso a foto entra bem mais discreta aqui. */
+/* No mobile o texto ocupa a largura toda e o gradiente horizontal não protege
+   mais nada — por isso a foto entra mais discreta.
+   A âncora vertical em 34% coloca a faixa da imagem logo ABAIXO do título, em
+   vez dos 70% anteriores, que empurravam o drone para o rodapé do hero e o
+   cortavam atrás da lista de tópicos. A máscara sobe junto. */
 @media (max-width:900px){
-  .hero--foto::before{ opacity:.48; background-position:center 70%; }
+  .hero--foto::before{
+    opacity:.48;
+    background-size:170% auto;
+    background-position:center 34%;
+    -webkit-mask-image:radial-gradient(130% 90% at 50% 36%, #000 0%, #000 52%, transparent 88%);
+            mask-image:radial-gradient(130% 90% at 50% 36%, #000 0%, #000 52%, transparent 88%);
+  }
   .hero--foto::after{
     background:linear-gradient(180deg, var(--bg) 2%, rgba(10,14,26,.52) 45%, var(--bg) 96%);
   }
