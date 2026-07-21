@@ -171,6 +171,18 @@ body::before{
 .step p{ color:var(--muted); font-size:.98rem; }
 
 /* escopo */
+/* o que o drone faz no ar — borda aqua, o mesmo recurso do .depo em âmbar */
+.voo{ margin-top:56px; padding-top:44px; border-top:1px solid var(--line-2); }
+.voo__titulo{ font-family:var(--display); font-size:1.5rem; letter-spacing:-.02em; margin-bottom:24px; }
+.voo__grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.voo__item{ background:var(--bg-2); border:1px solid var(--line); border-left:3px solid var(--aqua); border-radius:12px; padding:22px 24px; }
+.voo__item h4{ font-family:var(--display); font-size:1.05rem; letter-spacing:-.01em; margin-bottom:8px; }
+.voo__item p{ color:var(--muted); font-size:.95rem; }
+
+.extras{ margin-top:44px; }
+.extras__titulo{ font-family:var(--display); font-size:1.5rem; letter-spacing:-.02em; margin-bottom:20px; }
+.extras .list li strong{ color:var(--text); font-weight:600; }
+
 .escopo{ display:grid; grid-template-columns:1fr 1fr; gap:40px; }
 .list{ list-style:none; display:grid; gap:12px; }
 .list li{ position:relative; padding-left:30px; color:var(--muted); }
@@ -265,7 +277,7 @@ body::before{
 /* ---------- responsivo ---------- */
 @media (max-width:900px){
   .hero__grid, .escopo, .preco, .assinar, .planos, .depos{ grid-template-columns:1fr; }
-  .steps, .avulsos{ grid-template-columns:1fr; }
+  .steps, .avulsos, .voo__grid{ grid-template-columns:1fr; }
   .nav__links{ display:none; }
   .hero{ padding:48px 0 24px; }
   .hero__sub{ max-width:none; }
