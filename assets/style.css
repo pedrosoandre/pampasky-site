@@ -181,10 +181,10 @@ body::before{
 .hero--foto::before{
   content:""; position:absolute; inset:0; z-index:0;
   background:var(--foto-hero) 78% 62%/cover no-repeat;
-  opacity:.55;
-  filter:saturate(.5) contrast(1.06) brightness(.98);
-  -webkit-mask-image:radial-gradient(120% 100% at 74% 56%, #000 0%, #000 48%, transparent 82%);
-          mask-image:radial-gradient(120% 100% at 74% 56%, #000 0%, #000 48%, transparent 82%);
+  opacity:.80;
+  filter:saturate(.72) contrast(1.04) brightness(1.02);
+  -webkit-mask-image:radial-gradient(135% 115% at 72% 56%, #000 0%, #000 62%, transparent 94%);
+          mask-image:radial-gradient(135% 115% at 72% 56%, #000 0%, #000 62%, transparent 94%);
 }
 
 /* camada 2 — véu da paleta. O gradiente horizontal é o que segura o contraste:
@@ -193,9 +193,9 @@ body::before{
 .hero--foto::after{
   content:""; position:absolute; inset:0; z-index:0;
   background:
-    radial-gradient(85% 65% at 72% 55%, rgba(88,198,192,.12), transparent 62%),
-    linear-gradient(90deg, var(--bg) 3%, rgba(10,14,26,.82) 40%, rgba(10,14,26,.30) 64%, transparent 94%),
-    linear-gradient(180deg, var(--bg) 1%, rgba(10,14,26,.28) 44%, var(--bg) 96%);
+    radial-gradient(85% 65% at 72% 55%, rgba(88,198,192,.10), transparent 62%),
+    linear-gradient(90deg, var(--bg) 2%, rgba(10,14,26,.80) 38%, rgba(10,14,26,.14) 62%, transparent 96%),
+    linear-gradient(180deg, var(--bg) 0%, rgba(10,14,26,.14) 46%, var(--bg) 98%);
 }
 
 .hero--foto > .wrap{ position:relative; z-index:1; }
@@ -203,9 +203,9 @@ body::before{
 /* no mobile o texto ocupa a largura toda e o gradiente horizontal não protege
    mais nada — por isso a foto entra bem mais discreta aqui. */
 @media (max-width:900px){
-  .hero--foto::before{ opacity:.30; background-position:center 70%; }
+  .hero--foto::before{ opacity:.48; background-position:center 70%; }
   .hero--foto::after{
-    background:linear-gradient(180deg, var(--bg) 2%, rgba(10,14,26,.62) 45%, var(--bg) 96%);
+    background:linear-gradient(180deg, var(--bg) 2%, rgba(10,14,26,.52) 45%, var(--bg) 96%);
   }
 }
 
