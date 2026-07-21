@@ -180,16 +180,14 @@ body::before{
 /* camada 1 — a imagem, ancorada à direita e desbotada nas bordas */
 .hero--foto::before{
   content:""; position:absolute; inset:0; z-index:0;
-  /* 'cover' preenche tudo: a foto nunca mostra borda própria, então não vira
-     retângulo colado. O desfoque leve é o que resolve o resto — joga a imagem
-     para o fundo como profundidade de campo, disfarça o upscale (o arquivo tem
-     só 764px de largura) e faz o drone ler como distante em vez de estourado. */
-  background:var(--foto-hero) 62% 52%/cover no-repeat;
+  /* Mesmo princípio do bloco de operação: imagem em tamanho próximo do nativo
+     (764px) em vez de 'cover', que ampliava ~2,5x para cobrir a largura da tela.
+     A máscara dissolve as bordas, então não vira retângulo colado. */
+  background:var(--foto-hero) 58% 54%/min(900px, 92vw) auto no-repeat;
   opacity:.80;
-  filter:saturate(.6) contrast(1.02) brightness(1.02) blur(2.5px);
-  transform:scale(1.04);   /* cobre a franja transparente que o blur cria na borda */
-  -webkit-mask-image:radial-gradient(140% 150% at 58% 52%, #000 0%, #000 46%, transparent 96%);
-          mask-image:radial-gradient(140% 150% at 58% 52%, #000 0%, #000 46%, transparent 96%);
+  filter:saturate(.6) contrast(1.02) brightness(1.02) blur(1.5px);
+  -webkit-mask-image:radial-gradient(30% 68% at 58% 54%, #000 0%, #000 32%, transparent 100%);
+          mask-image:radial-gradient(30% 68% at 58% 54%, #000 0%, #000 32%, transparent 100%);
 }
 
 /* camada 2 — véu da paleta. O gradiente horizontal é o que segura o contraste:
@@ -222,11 +220,11 @@ body::before{
 @media (max-width:900px){
   .hero--foto::before{
     opacity:.52;
-    background-size:cover;
+    background-size:96vw auto;
     background-position:center 34%;
-    filter:saturate(.6) contrast(1.02) brightness(1.02) blur(2px);
-    -webkit-mask-image:radial-gradient(150% 85% at 50% 36%, #000 0%, #000 42%, transparent 94%);
-            mask-image:radial-gradient(150% 85% at 50% 36%, #000 0%, #000 42%, transparent 94%);
+    filter:saturate(.6) contrast(1.02) brightness(1.02) blur(1.2px);
+    -webkit-mask-image:radial-gradient(62% 34% at 50% 36%, #000 0%, #000 40%, transparent 100%);
+            mask-image:radial-gradient(62% 34% at 50% 36%, #000 0%, #000 40%, transparent 100%);
   }
   .hero--foto::after{
     background:linear-gradient(180deg, var(--bg) 2%, rgba(10,14,26,.52) 45%, var(--bg) 96%);
@@ -256,13 +254,18 @@ body::before{
   left:calc(50% - 50vw); width:100vw; right:auto;
 }
 
+/* A camada sangra a tela inteira, mas a IMAGEM fica perto do tamanho nativo
+   (770px). Com 'cover' o navegador era obrigado a ampliar ~2,5x para preencher
+   a largura da janela — a escala do cover é ditada pela largura — e o drone
+   estourava. Dimensionando a imagem em vez de deixá-la cobrir, a ampliação
+   some; a máscara dissolve as bordas antes delas aparecerem, então continua
+   sem cara de retângulo colado. */
 .operacao--foto::before{
-  background:var(--foto-oper) 50% 48%/cover no-repeat;
+  background:var(--foto-oper) 50% 46%/min(940px, 92vw) auto no-repeat;
   opacity:.80;
-  filter:saturate(.6) contrast(1.02) brightness(1.02) blur(2.5px);
-  transform:scale(1.03);
-  -webkit-mask-image:radial-gradient(80% 150% at 50% 50%, #000 0%, #000 40%, transparent 95%);
-          mask-image:radial-gradient(80% 150% at 50% 50%, #000 0%, #000 40%, transparent 95%);
+  filter:saturate(.6) contrast(1.02) brightness(1.02) blur(1.5px);
+  -webkit-mask-image:radial-gradient(30% 62% at 50% 47%, #000 0%, #000 34%, transparent 100%);
+          mask-image:radial-gradient(30% 62% at 50% 47%, #000 0%, #000 34%, transparent 100%);
 }
 
 .operacao--foto::after{
