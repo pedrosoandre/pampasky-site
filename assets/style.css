@@ -171,6 +171,20 @@ body::before{
 .step p{ color:var(--muted); font-size:.98rem; }
 
 /* escopo */
+/* foto de fundo do hero — ancorada embaixo, sob véu escuro para o texto respirar.
+   Só existe quando 'foto_hero' está setado no config (classe .hero--foto). */
+.hero--foto{ position:relative; overflow:hidden; }
+.hero--foto::before{
+  content:""; position:absolute; inset:0; z-index:0;
+  background:var(--foto-hero) center bottom/cover no-repeat;
+  opacity:.34;
+}
+.hero--foto::after{
+  content:""; position:absolute; inset:0; z-index:0;
+  background:linear-gradient(180deg, var(--bg) 4%, rgba(10,14,26,.45) 45%, var(--bg) 97%);
+}
+.hero--foto > .wrap{ position:relative; z-index:1; }
+
 /* o que o drone faz no ar — borda aqua, o mesmo recurso do .depo em âmbar */
 .voo{ margin-top:56px; padding-top:44px; border-top:1px solid var(--line-2); }
 .voo__titulo{ font-family:var(--display); font-size:1.5rem; letter-spacing:-.02em; margin-bottom:24px; }
