@@ -303,6 +303,21 @@ body::before{
 .equip__item p{ color:var(--muted); font-size:.96rem; }
 .equip__nota{ margin-top:18px; font-size:.9rem; color:var(--dim); max-width:70ch; }
 
+/* página do equipamento */
+.lede{ font-size:1.12rem; color:var(--muted); max-width:64ch; margin-bottom:8px; }
+.equip-split{ display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:start; }
+.equip-split p{ color:var(--muted); margin-bottom:14px; }
+.spec{ list-style:none; display:grid; border:1px solid var(--line); border-radius:14px; overflow:hidden; background:var(--bg-2); }
+.spec li{ display:flex; justify-content:space-between; gap:16px; padding:14px 18px; border-bottom:1px solid var(--line); }
+.spec li:last-child{ border-bottom:0; }
+.spec__k{ font-family:var(--mono); font-size:.74rem; text-transform:uppercase; letter-spacing:.06em; color:var(--dim); }
+.spec__v{ color:var(--text); font-size:.95rem; text-align:right; }
+.limites{ margin-top:22px; max-width:74ch; }
+.limites li strong{ color:var(--text); font-weight:600; }
+.cta-fim{ text-align:center; max-width:640px; margin-inline:auto; }
+.cta-fim p{ color:var(--muted); margin:10px 0 22px; }
+.cta-fim .hero__actions{ justify-content:center; }
+
 .escopo{ display:grid; grid-template-columns:1fr 1fr; gap:40px; }
 .list{ list-style:none; display:grid; gap:12px; }
 .list li{ position:relative; padding-left:30px; color:var(--muted); }
@@ -397,7 +412,7 @@ body::before{
 /* ---------- responsivo ---------- */
 @media (max-width:900px){
   .hero__grid, .escopo, .preco, .assinar, .planos, .depos{ grid-template-columns:1fr; }
-  .steps, .avulsos, .voo__grid, .equip{ grid-template-columns:1fr; }
+  .steps, .avulsos, .voo__grid, .equip, .equip-split{ grid-template-columns:1fr; }
   .nav__links{ display:none; }
   .hero{ padding:48px 0 24px; }
   .hero__sub{ max-width:none; }
