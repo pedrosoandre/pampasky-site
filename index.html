@@ -32,8 +32,8 @@
 
 
 <!-- HERO -->
-<section class="hero hero--foto" style="--foto-hero:url('../imagens/images.jpg')">
-  <div class="wrap hero__grid">
+<section class="hero">
+  <div class="wrap hero__grid hero__grid--solo">
     <div class="hero__copy">
       <p class="eyebrow"><span class="dot"></span> Ronda aérea</p>
       <h1 class="hero__title">Sua rua, olhada<br>de cima.</h1>
@@ -52,55 +52,8 @@
       </ul>
     </div>
 
-    <!-- ASSINATURA: vídeo real da ronda (se houver) ou mapa com a rota animada -->
-        <figure class="map" aria-label="Ilustração de um drone percorrendo a rota da ronda sobre o bairro">
-      <div class="map__telemetry">
-        <span>ALT&nbsp;90m</span><span>VLOS</span><span class="live"><i></i>EM RONDA</span>
-      </div>
-      <svg viewBox="0 0 400 320" role="img" aria-hidden="true">
-        <defs>
-          <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#FFB454" stop-opacity=".55"/>
-            <stop offset="100%" stop-color="#FFB454" stop-opacity="0"/>
-          </radialGradient>
-          <linearGradient id="route" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#58C6C0"/>
-            <stop offset="100%" stop-color="#8ADED9"/>
-          </linearGradient>
-        </defs>
-
-        <!-- quarteirões -->
-        <g class="blocks">
-          <rect x="40"  y="40"  width="90" height="70" rx="6"/>
-          <rect x="155" y="40"  width="90" height="70" rx="6"/>
-          <rect x="270" y="40"  width="90" height="110" rx="6"/>
-          <rect x="40"  y="135" width="90" height="145" rx="6"/>
-          <rect x="155" y="135" width="90" height="60" rx="6"/>
-          <rect x="155" y="220" width="90" height="60" rx="6"/>
-          <rect x="270" y="175" width="90" height="105" rx="6"/>
-        </g>
-        <!-- postes de luz -->
-        <g class="lamps">
-          <circle cx="142" cy="122" r="2.5"/><circle cx="257" cy="122" r="2.5"/>
-          <circle cx="142" cy="207" r="2.5"/><circle cx="257" cy="162" r="2.5"/>
-        </g>
-
-        <!-- rota da ronda -->
-        <path id="rota" class="route" d="M 85 90 L 300 90 L 300 225 L 200 225 L 200 175 L 85 175 Z"
-              fill="none" stroke="url(#route)" stroke-width="2.5" stroke-linecap="round"/>
-        <!-- traço que percorre a rota -->
-        <path class="route__runner" d="M 85 90 L 300 90 L 300 225 L 200 225 L 200 175 L 85 175 Z"
-              fill="none" stroke="url(#route)" stroke-width="3" stroke-linecap="round"/>
-
-        <!-- drone -->
-        <g class="drone">
-          <circle r="34" fill="url(#glow)"/>
-          <circle r="4.5" fill="#FFCE8A"/>
-          <circle r="9" fill="none" stroke="#FFB454" stroke-width="1.5" opacity=".7"/>
-        </g>
-      </svg>
-      <figcaption class="map__cap">Rota ilustrativa · o circuito é ajustado à sua rua</figcaption>
-    </figure>
+    <!-- ASSINATURA: só o vídeo real da ronda, quando houver. O mapa animado da
+         rota foi removido a pedido; sem vídeo, o hero fica em coluna única. -->
       </div>
 </section>
 
@@ -128,7 +81,7 @@
     </ol>
 
     <!-- os dois blocos abaixo dividem um fundo só, por isso o container -->
-    <div class="operacao operacao--foto" style="--foto-oper:url('../imagens/288909164817bfab66a20e63011312cd@770_462.jpg')">
+    <div class="operacao">
 
     <!-- o que o drone efetivamente faz no ar (entrega, não promessa) -->
     <div class="voo">

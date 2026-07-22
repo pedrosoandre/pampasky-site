@@ -96,6 +96,9 @@ body::before{
 /* ---------- hero ---------- */
 .hero{ padding:72px 0 40px; }
 .hero__grid{ display:grid; grid-template-columns:1.05fr .95fr; gap:48px; align-items:center; }
+/* sem vídeo, o hero não tem coluna da direita: uma coluna só, texto mais largo */
+.hero__grid--solo{ grid-template-columns:1fr; }
+.hero__grid--solo .hero__sub{ max-width:60ch; }
 .eyebrow{
   display:inline-flex; align-items:center; gap:9px;
   font-family:var(--mono); font-size:.78rem; letter-spacing:.06em; text-transform:uppercase;
