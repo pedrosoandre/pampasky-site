@@ -318,6 +318,15 @@ body::before{
 .cta-fim p{ color:var(--muted); margin:10px 0 22px; }
 .cta-fim .hero__actions{ justify-content:center; }
 
+/* seção "O projeto" — destaque da base + fluxo numerado */
+.projeto__base{ background:var(--bg-2); border:1px solid var(--line); border-left:3px solid var(--amber); border-radius:16px; padding:26px 28px; margin:24px 0; max-width:760px; }
+.projeto__base h3{ font-family:var(--display); font-size:1.24rem; letter-spacing:-.01em; margin:9px 0 10px; }
+.projeto__base p{ color:var(--muted); }
+.projeto__fluxo{ list-style:none; counter-reset:f; display:grid; gap:14px; max-width:760px; margin-top:6px; }
+.projeto__fluxo li{ counter-increment:f; position:relative; padding-left:46px; color:var(--muted); padding-top:3px; }
+.projeto__fluxo li::before{ content:counter(f); position:absolute; left:0; top:0; width:30px; height:30px; display:grid; place-items:center; font-family:var(--mono); font-size:.86rem; color:var(--amber); border:1px solid rgba(255,180,84,.4); border-radius:50%; }
+.projeto__fluxo li strong{ color:var(--text); }
+
 .escopo{ display:grid; grid-template-columns:1fr 1fr; gap:40px; }
 .list{ list-style:none; display:grid; gap:12px; }
 .list li{ position:relative; padding-left:30px; color:var(--muted); }
