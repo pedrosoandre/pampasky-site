@@ -295,6 +295,14 @@ body::before{
 .extras__titulo{ font-family:var(--display); font-size:1.5rem; letter-spacing:-.02em; margin-bottom:20px; }
 .extras .list li strong{ color:var(--text); font-weight:600; }
 
+/* equipamento e base — cards com etiqueta em mono, borda aqua à esquerda */
+.equip{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.equip__item{ background:var(--bg-2); border:1px solid var(--line); border-left:3px solid var(--aqua); border-radius:14px; padding:24px; }
+.equip__tag{ font-family:var(--mono); font-size:.7rem; letter-spacing:.08em; text-transform:uppercase; color:var(--aqua); }
+.equip__item h3{ font-family:var(--display); font-size:1.16rem; letter-spacing:-.01em; margin:9px 0 9px; }
+.equip__item p{ color:var(--muted); font-size:.96rem; }
+.equip__nota{ margin-top:18px; font-size:.9rem; color:var(--dim); max-width:70ch; }
+
 .escopo{ display:grid; grid-template-columns:1fr 1fr; gap:40px; }
 .list{ list-style:none; display:grid; gap:12px; }
 .list li{ position:relative; padding-left:30px; color:var(--muted); }
@@ -389,7 +397,7 @@ body::before{
 /* ---------- responsivo ---------- */
 @media (max-width:900px){
   .hero__grid, .escopo, .preco, .assinar, .planos, .depos{ grid-template-columns:1fr; }
-  .steps, .avulsos, .voo__grid{ grid-template-columns:1fr; }
+  .steps, .avulsos, .voo__grid, .equip{ grid-template-columns:1fr; }
   .nav__links{ display:none; }
   .hero{ padding:48px 0 24px; }
   .hero__sub{ max-width:none; }
